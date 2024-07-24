@@ -6,4 +6,22 @@
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="Background" Value="#040608"/>
     </Style>
+    <Style x:Key="UserInputTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="AliceBlue"/>
+        <Setter Property="TextElement.Foreground" Value="#C8C8C8"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="3"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="#FFCCCC"/>
+                <Setter Property="Background" Value="#191919"/>
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush" Value="#FF9999"/>
+                <Setter Property="Background" Value="#191919"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

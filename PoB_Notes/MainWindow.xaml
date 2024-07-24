@@ -52,7 +52,6 @@
                 <Button Style="{StaticResource DescriptionButtonStyle}" Content="СТАНДАРТ" TextElement.Foreground="#FFFFFF"/>
             </StackPanel>
         </Grid>
-        <TextBox x:Name="UserInput" Background="Transparent" BorderBrush="AliceBlue" 
-                 TextWrapping="Wrap" TextElement.Foreground="#C8C8C8" Grid.Row="2" Margin="3"/>
+        <TextBox x:Name="UserInput" Style="{StaticResource UserInputTextBoxStyle}" Grid.Row="2"/>
     </Grid>
 </Window>
