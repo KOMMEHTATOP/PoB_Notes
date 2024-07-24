@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\Strength.cs" />
     <Compile Include="View\DescriptionColourButton.cs" />
     <Compile Include="View\MainDescription.cs" />
     <Page Include="MainWindow.xaml">
