@@ -5,8 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoB_Notes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" MinHeight="800" MinWidth="1150">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Style/DescriptionButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="AllGrid" Background="#040608" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Description" Text="{Binding DescriptionText }" 
+                   TextElement.Foreground="#A2A2A2" FontSize="16" Grid.Row="0" 
+                   Margin="10,3,10,3" VerticalAlignment="Top"/>
+
+        <Grid x:Name="ButtonBlock" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Margin ="5,1,5,1">
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="НОРМАЛЬНЫЙ" TextElement.Foreground="#A2A2A2"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="ОГОНЬ" TextElement.Foreground="#B97123"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="СИЛА" TextElement.Foreground="#E05030"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Margin ="5,1,5,1">
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="МАГИЧЕСКИЙ" TextElement.Foreground="#8888FF"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="ХОЛОД" TextElement.Foreground="#3F6DB3"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="ЛОВКОСТЬ" TextElement.Foreground="#70FF70"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" Margin ="5,1,5,1">
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="РЕДКИЙ" TextElement.Foreground="#FFFF77"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="МОЛНИЯ" TextElement.Foreground="#ADAA47"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="ИНТЕЛЕКТ" TextElement.Foreground="#6C6CE4"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="3" Margin ="5,1,5,1">
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="УНИКАЛЬНЫЙ" TextElement.Foreground="#A65F29"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="ХАОС" TextElement.Foreground="#CC228E"/>
+                <Button Style="{StaticResource DescriptionButtonStyle}" Content="СТАНДАРТ" TextElement.Foreground="#FFFFFF"/>
+            </StackPanel>
+        </Grid>
+        <TextBox x:Name="UserInput" Background="Transparent" BorderBrush="AliceBlue" 
+                 TextWrapping="Wrap" TextElement.Foreground="#C8C8C8" Grid.Row="2" Margin="3"/>
     </Grid>
 </Window>
