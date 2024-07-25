@@ -58,6 +58,7 @@
     <Compile Include="DataBase\Strength.cs" />
     <Compile Include="View\DescriptionButtonStyle.cs" />
     <Compile Include="View\MainDescription.cs" />
+    <Compile Include="View\MainView.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

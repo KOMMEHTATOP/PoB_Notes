@@ -29,11 +29,7 @@ namespace PoB_Notes
 
         private void Loading()
         {
-            MainDescription _mainDescription = new MainDescription() 
-            { DescriptionText = 
-            $"Вы можете использовать комбинацию клавиш Ctrl +/- для увеличения/уменьшения размера текста.\n" +
-            $"Текстовые поля поддерживают подсветку кнопками ниже." +
-            $"Используйте их для описания, это поможет легче читать ваши заметки." };
+            MainDescription _mainDescription = new MainDescription();
             this.DataContext = _mainDescription;
         }
     }
