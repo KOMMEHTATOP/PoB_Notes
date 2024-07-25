@@ -1,11 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="DescriptionButtonStyle" TargetType="Button">
+    <!--Стиль кнопок-->
+    <Style x:Key="DescriptionStyle" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Width" Value="100"/>
         <Setter Property="FontSize" Value="13"/>
-        <Setter Property="Background" Value="#040608"/>
+        <Setter Property="Background" Value="Transparent"/>
     </Style>
+    <!--Стиль поля ввода-->
     <Style x:Key="UserInputTextBoxStyle" TargetType="TextBox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="AliceBlue"/>

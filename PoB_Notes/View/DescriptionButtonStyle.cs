@@ -8,47 +8,46 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace PoB_Notes.DataBase
+namespace PoB_Notes.View
 {
-    internal class Strength : INotifyPropertyChanged
+    internal class DescriptionButtonStyle : INotifyPropertyChanged
     {
-        private Color _strengthColor = (Color)ColorConverter.ConvertFromString("#E05030");
-        public Color StrengthColor
+        private string _name;
+        public string Name
         {
-            get { return _strengthColor; }
+            get { return _name; }
             set
             {
-                if (_strengthColor != value)
+                if (_name != value)
                 {
-                    _strengthColor = value;
+                    _name = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private double _lifeUp;
-        public double LifeUp
+        private int _height;
+        public int Height
         {
-            get { return _lifeUp; }
+            get { return _height; }
             set
             {
-                if (_lifeUp != value)
+                if (_height != value)
                 {
-                    _lifeUp = value;
-                    OnPropertyChanged();
+                    _height = value;
                 }
             }
         }
-        private double _damageUp;
-        public double DamageUp
+
+        private int _width;
+        public int Width
         {
-            get { return _damageUp; }
+            get { return _width; }
             set
             {
-                if (_damageUp != value)
+                if (_width != value)
                 {
-                    _damageUp = value;
-                    OnPropertyChanged();
+                    _width = value;
                 }
             }
         }
