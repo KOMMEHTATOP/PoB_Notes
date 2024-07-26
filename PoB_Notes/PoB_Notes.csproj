@@ -55,7 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="DataBase\Strength.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="View\DescriptionButtonStyle.cs" />
     <Compile Include="View\MainDescription.cs" />
     <Compile Include="View\MainView.cs" />

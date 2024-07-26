@@ -1,4 +1,5 @@
 ﻿using PoB_Notes.View;
+using PoB_Notes.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace PoB_Notes
         public MainWindow()
         {
             InitializeComponent();
+            
             Loading();
         }
 
