@@ -32,26 +32,26 @@
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" Grid.Column="0" Margin ="5,1,5,1">
-                <Button Style="{StaticResource NormalButtonColorStyle}" Content="НОРМАЛЬНЫЙ"/>
-                <Button Style="{StaticResource FireButtonColorStyle}" Content="ОГОНЬ"/>
-                <Button Style="{StaticResource StrengthButtonColorStyle}" Content="СИЛА"/>
+                <Button x:Name="NormalButton" Style="{StaticResource NormalButtonColorStyle}" Content="НОРМАЛЬНЫЙ"/>
+                <Button x:Name="FireButton" Style="{StaticResource FireButtonColorStyle}" Content="ОГОНЬ"/>
+                <Button x:Name="StrenghtButton" Style="{StaticResource StrengthButtonColorStyle}" Content="СИЛА"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="1" Margin ="5,1,5,1">
-                <Button Style="{StaticResource MagicButtonColorStyle}" Content="МАГИЧЕСКИЙ"/>
-                <Button Style="{StaticResource ColdButtonColorStyle}" Content="ХОЛОД"/>
-                <Button Style="{StaticResource DexterityButtonColorStyle}" Content="ЛОВКОСТЬ"/>
+                <Button x:Name="MagicButton" Style="{StaticResource MagicButtonColorStyle}" Content="МАГИЧЕСКИЙ"/>
+                <Button x:Name="ColdButton" Style="{StaticResource ColdButtonColorStyle}" Content="ХОЛОД"/>
+                <Button x:Name="DexterityButton" Style="{StaticResource DexterityButtonColorStyle}" Content="ЛОВКОСТЬ"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="2" Margin ="5,1,5,1">
-                <Button Style="{StaticResource RareButtonColorStyle}" Content="РЕДКИЙ"/>
-                <Button Style="{StaticResource LightningButtonColorStyle}" Content="МОЛНИЯ"/>
-                <Button Style="{StaticResource IntelligenceButtonColorStyle}" Content="ИНТЕЛЕКТ"/>
+                <Button x:Name="RareButton" Style="{StaticResource RareButtonColorStyle}" Content="РЕДКИЙ"/>
+                <Button x:Name="LightningButton" Style="{StaticResource LightningButtonColorStyle}" Content="МОЛНИЯ"/>
+                <Button x:Name="IntelligenceButton" Style="{StaticResource IntelligenceButtonColorStyle}" Content="ИНТЕЛЕКТ"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Column="3" Margin ="5,1,5,1">
-                <Button Style="{StaticResource UniqueButtonColorStyle}" Content="УНИКАЛЬНЫЙ"/>
-                <Button Style="{StaticResource ChaosButtonColorStyle}" Content="ХАОС"/>
-                <Button Style="{StaticResource DefaultButtonColorStyle}" Content="СТАНДАРТ"/>
+                <Button x:Name="UniqueButton" Style="{StaticResource UniqueButtonColorStyle}" Content="УНИКАЛЬНЫЙ"/>
+                <Button x:Name="ChaosButton" Style="{StaticResource ChaosButtonColorStyle}" Content="ХАОС"/>
+                <Button x:Name="StandartButton" Style="{StaticResource DefaultButtonColorStyle}" Content="СТАНДАРТ"/>
             </StackPanel>
         </Grid>
-        <TextBox x:Name="UserInput" Style="{StaticResource UserInputTextBoxStyle}" Grid.Row="2"/>
+        <RichTextBox x:Name="UserInput" Style="{StaticResource UserInputTextBoxStyle}" AcceptsReturn="True" Grid.Row="2"/>
     </Grid>
 </Window>

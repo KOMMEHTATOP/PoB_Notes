@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace PoB_Notes.ViewModels
+namespace PoB_Notes.MainViewModels
 {
     internal class MainViewModel : INotifyPropertyChanged
     {

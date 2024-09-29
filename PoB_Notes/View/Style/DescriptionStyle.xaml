@@ -46,11 +46,10 @@
     </Style>
     
     <!--Стиль поля ввода-->
-    <Style x:Key="UserInputTextBoxStyle" TargetType="TextBox">
+    <Style x:Key="UserInputTextBoxStyle" TargetType="RichTextBox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="AliceBlue"/>
         <Setter Property="TextElement.Foreground" Value="#C8C8C8"/>
-        <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Margin" Value="3"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
