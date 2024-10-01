@@ -1,4 +1,4 @@
-﻿using PoB_Notes.Commands;
+﻿using PoB_NETRu.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,39 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace PoB_Notes.MainViewModels
+namespace PoB_NETRu.MainViewModels
 {
-    internal class MainViewModel : INotifyPropertyChanged
+    internal class MainViewModel
     {
-        private SolidColorBrush _textColor;
-
-        public SolidColorBrush MyProperty
-        {
-            get { return _textColor; }
-            set 
-            { 
-                _textColor = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-        public ICommand MyCommand { get; }
-        public MainViewModel()
-        {
-            MyCommand = new RelayCommand(ExecuteMyCommand);
-        }
-
-        private void ExecuteMyCommand()
-        {
-
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+      
     }
 }

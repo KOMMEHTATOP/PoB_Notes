@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace PoB_Notes.DataBase
+namespace PoB_NETRu.DataBase
 {
     internal class Strength : INotifyPropertyChanged
     {

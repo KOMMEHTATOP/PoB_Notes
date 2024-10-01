@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoB_Notes.View
+namespace PoB_NETRu.View
 {
     internal class MainDescription : INotifyPropertyChanged
     {

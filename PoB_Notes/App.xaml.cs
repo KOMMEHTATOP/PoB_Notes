@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PoB_Notes
+namespace PoB_NETRu
 {
     /// <summary>
     /// Interaction logic for App.xaml

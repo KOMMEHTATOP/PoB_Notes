@@ -1,7 +1,7 @@
-﻿<Application x:Class="PoB_Notes.App"
+﻿<Application x:Class="PoB_NETRu.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PoB_Notes"
+             xmlns:local="clr-namespace:PoB_NETRu"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

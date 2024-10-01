@@ -1,5 +1,5 @@
-﻿using PoB_Notes.View;
-using PoB_Notes.MainViewModels;
+﻿using PoB_NETRu.View;
+using PoB_NETRu.MainViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PoB_Notes
+namespace PoB_NETRu
 {
     public partial class MainWindow : Window
     {

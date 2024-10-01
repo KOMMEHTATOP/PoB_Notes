@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace PoB_Notes.View
+namespace PoB_NETRu.View
 {
     internal class MainView : INotifyPropertyChanged
     {

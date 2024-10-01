@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PoB_Notes.Properties
+namespace PoB_NETRu.Properties
 {
 
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace PoB_Notes.Commands
+namespace PoB_NETRu.Commands
 {
     internal class RelayCommand : ICommand
     {
