@@ -59,6 +59,7 @@
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Strength.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\NotesViewModel.cs" />
     <Compile Include="View\DescriptionButtonStyle.cs" />
     <Compile Include="View\MainDescription.cs" />
     <Compile Include="View\MainView.cs" />
