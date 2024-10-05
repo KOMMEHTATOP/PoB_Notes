@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace PoB_NETRu.Models
 {
-    internal class Character : INotifyPropertyChanged
+    public class Character : INotifyPropertyChanged
     {
 
         public Character(string charName, int charLevel = 1)

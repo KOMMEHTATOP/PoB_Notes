@@ -1,0 +1,48 @@
+﻿<Window x:Class="PoB_NETRu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Main Window" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- Статистика персонажа -->
+            <ColumnDefinition Width="*"/>
+            <!-- Вкладки -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Блок со статистикой персонажа -->
+        <StackPanel Grid.Column="0" Background="LightGray">
+            <TextBlock Text="Статистика персонажа" FontWeight="Bold" FontSize="16" Margin="10"/>
+
+            <TextBlock Text="{Binding Character.CharName, StringFormat = 'Имя: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.CharLevel, StringFormat = 'Уровень: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.Health, StringFormat = 'Здоровье: {0}'}" Margin="10"/>
+            
+            <TextBlock Text="{Binding Character.Armour, StringFormat = 'Энергощит: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.EnergyShield, StringFormat = 'Броня: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.EvationRating, StringFormat = 'Уклонение: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.SpellSuppres, StringFormat = 'Подавление урона от чар: {0}'}" Margin="10"/>
+
+            <TextBlock Text="{Binding Character.Strength, StringFormat = 'Сила: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.Dexterity, StringFormat = 'Ловкость: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.Intelligence, StringFormat = 'Интелект: {0}'}" Margin="10"/>
+
+            <TextBlock Text="{Binding Character.PhysicalDamage, StringFormat = 'Физ.урон: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.ElementalDamage, StringFormat = 'Элем.урон: {0}'}" Margin="10"/>
+            <TextBlock Text="{Binding Character.ChaosDamage, StringFormat = 'Хаос урон: {0}'}" Margin="10"/>
+            
+            
+        </StackPanel>
+
+        <!-- Вкладки -->
+        <TabControl Grid.Column="1">
+            <TabItem Header="Записки">
+                <ContentControl Content="{Binding NotesViewModel}"/>
+            </TabItem>
+            <TabItem Header="Конфигурация">
+                <ContentControl Content="{Binding ConfigurationViewModel}" />
+            </TabItem>
+            <!-- Добавьте другие вкладки -->
+        </TabControl>
+    </Grid>
+</Window>

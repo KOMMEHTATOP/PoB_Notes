@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BF133AA1-BEF7-49E0-9F2E-B77E74F87298}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PoB_Notes</RootNamespace>
-    <AssemblyName>PoB_Notes</AssemblyName>
+    <RootNamespace>PoB_NETRu</RootNamespace>
+    <AssemblyName>PoB_NETRu</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -60,10 +60,10 @@
     <Compile Include="Models\Strength.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NotesViewModel.cs" />
-    <Compile Include="View\DescriptionButtonStyle.cs" />
-    <Compile Include="View\MainDescription.cs" />
-    <Compile Include="View\MainView.cs" />
-    <Page Include="MainWindow.xaml">
+    <Compile Include="View\NotesView.xaml.cs">
+      <DependentUpon>NotesView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,10 +71,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\NotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Style\DescriptionStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

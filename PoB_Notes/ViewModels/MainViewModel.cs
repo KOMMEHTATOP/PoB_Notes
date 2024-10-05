@@ -1,18 +1,36 @@
-﻿using PoB_NETRu.Commands;
-using System;
-using System.Collections.Generic;
+﻿using PoB_NETRu.Models;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows.Media;
 
 namespace PoB_NETRu.MainViewModels
 {
-    internal class MainViewModel
+    internal class MainViewModel : INotifyPropertyChanged
     {
-      
+        private Character _character;
+
+        public Character Character
+        {
+            get { return _character; }
+            set
+            {
+                if (_character != value)
+                {
+                    _character = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public MainViewModel()
+        {
+            Character = new Character("Иван", 1);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
