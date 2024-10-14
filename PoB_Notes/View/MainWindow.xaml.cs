@@ -1,4 +1,5 @@
 ﻿using PoB_NETRu.MainViewModels;
+using PoB_NETRu.ViewModels;
 using System.Windows;
 
 namespace PoB_NETRu
@@ -8,7 +9,7 @@ namespace PoB_NETRu
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(); 
+            DataContext = new MainViewModel();
         }
     }
 }

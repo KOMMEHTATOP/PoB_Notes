@@ -1,4 +1,8 @@
-﻿using System.ComponentModel;
+﻿using PoB_NETRu.Commands;
+using PoB_NETRu.View;
+using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,40 +31,70 @@ namespace PoB_NETRu.ViewModels
             }
         }
 
+        public RelayCommand ChangeTextColorCommand { get; private set; }
+
         public NotesViewModel()
         {
-            
+            ChangeTextColorCommand = new RelayCommand(ExecuteChangeColor);
         }
 
-        public void ChangeTextColor(object sender, TextSelection selection)
+        private void ExecuteChangeColor(object parameter)
         {
-            if (!string.IsNullOrEmpty(selection.Text))
+            if (parameter is string styleKey)
             {
-                Button clickedButton = sender as Button;
+                var mainWindow = Application.Current.MainWindow;
+                var notesView = FindVisualChild<NotesView>(mainWindow);
 
-                if (clickedButton != null)
+                if (notesView == null)
                 {
-                    Style buttonStyle = clickedButton.Style;
+                    MessageBox.Show("NotesView не найден. Проверьте путь.");
+                    return;
+                }
 
-                    if (buttonStyle != null)
+                var richTextBox = FindVisualChild<RichTextBox>(notesView);
+                var selection = richTextBox?.Selection;
+
+                if (selection != null && selection.Text.Length > 0)
+                {
+                    var style = notesView.FindResource(styleKey) as Style;
+
+                    if (style != null)
                     {
-                        foreach (Setter setter in buttonStyle.Setters)
-                        {
-                            if (setter.Property == TextElement.ForegroundProperty)
-                            {
-                                SolidColorBrush colorBrush = setter.Value as SolidColorBrush;
+                        var colorBrush = style.Setters
+                            .OfType<Setter>()
+                            .FirstOrDefault(s => s.Property == TextElement.ForegroundProperty)?
+                            .Value as SolidColorBrush;
 
-                                if (colorBrush != null)
-                                {
-                                    TextRange textRange = new TextRange(selection.Start, selection.End);
-                                    textRange.ApplyPropertyValue(TextElement.ForegroundProperty, colorBrush);
-                                }
-                            }
+                        if (colorBrush != null)
+                        {
+                            TextRange textRange = new TextRange(selection.Start, selection.End);
+                            textRange.ApplyPropertyValue(TextElement.ForegroundProperty, colorBrush);
                         }
                     }
                 }
             }
         }
+
+
+        public static T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                if (child != null && child is T)
+                    return (T)child;
+                else
+                {
+                    T childOfChild = FindVisualChild<T>(child);
+                    if (childOfChild != null)
+                        return childOfChild;
+                }
+            }
+            return null;
+        }
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

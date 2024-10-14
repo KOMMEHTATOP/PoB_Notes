@@ -1,48 +1,48 @@
 ﻿<Window x:Class="PoB_NETRu.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Main Window" Height="600" Width="800">
+        xmlns:vm="clr-namespace:PoB_NETRu.ViewModels"
+        xmlns:vw="clr-namespace:PoB_NETRu.View"
+        Title="Main Window" Height="900" Width="1400">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:NotesViewModel}">
+            <vw:NotesView />
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
-            <!-- Статистика персонажа -->
             <ColumnDefinition Width="*"/>
-            <!-- Вкладки -->
         </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button Content="Записки" Margin="5" Command="{Binding ShowNotes}"/>
+            <Button Content="Конфигурация" Margin="5" Command="{Binding ShowAny}"/>
+        </StackPanel>
         <!-- Блок со статистикой персонажа -->
-        <StackPanel Grid.Column="0" Background="LightGray">
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="LightGray">
             <TextBlock Text="Статистика персонажа" FontWeight="Bold" FontSize="16" Margin="10"/>
-
             <TextBlock Text="{Binding Character.CharName, StringFormat = 'Имя: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.CharLevel, StringFormat = 'Уровень: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.Health, StringFormat = 'Здоровье: {0}'}" Margin="10"/>
-            
             <TextBlock Text="{Binding Character.Armour, StringFormat = 'Энергощит: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.EnergyShield, StringFormat = 'Броня: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.EvationRating, StringFormat = 'Уклонение: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.SpellSuppres, StringFormat = 'Подавление урона от чар: {0}'}" Margin="10"/>
-
             <TextBlock Text="{Binding Character.Strength, StringFormat = 'Сила: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.Dexterity, StringFormat = 'Ловкость: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.Intelligence, StringFormat = 'Интелект: {0}'}" Margin="10"/>
-
             <TextBlock Text="{Binding Character.PhysicalDamage, StringFormat = 'Физ.урон: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.ElementalDamage, StringFormat = 'Элем.урон: {0}'}" Margin="10"/>
             <TextBlock Text="{Binding Character.ChaosDamage, StringFormat = 'Хаос урон: {0}'}" Margin="10"/>
-            
-            
         </StackPanel>
-
         <!-- Вкладки -->
-        <TabControl Grid.Column="1">
-            <TabItem Header="Записки">
-                <ContentControl Content="{Binding NotesViewModel}"/>
-            </TabItem>
-            <TabItem Header="Конфигурация">
-                <ContentControl Content="{Binding ConfigurationViewModel}" />
-            </TabItem>
-            <!-- Добавьте другие вкладки -->
-        </TabControl>
+        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding SelectedViewModel}" />
     </Grid>
 </Window>

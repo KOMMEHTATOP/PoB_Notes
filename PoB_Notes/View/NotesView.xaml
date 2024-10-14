@@ -16,7 +16,6 @@
             <TextBlock x:Name="Description" Text="{Binding DescriptionText }" 
                        TextElement.Foreground="#A2A2A2" FontSize="16" Grid.Row="0" 
                        Margin="10,3,10,3" VerticalAlignment="Top"/>
-
             <Grid x:Name="ButtonBlock" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -26,24 +25,72 @@
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Vertical" Grid.Column="0" Margin ="5,1,5,1">
-                    <Button x:Name="NormalButton" Style="{StaticResource NormalButtonColorStyle}" Content="НОРМАЛЬНЫЙ"/>
-                    <Button x:Name="FireButton" Style="{StaticResource FireButtonColorStyle}" Content="ОГОНЬ"/>
-                    <Button x:Name="StrenghtButton" Style="{StaticResource StrengthButtonColorStyle}" Content="СИЛА"/>
+                    <Button x:Name="NormalButton" 
+                            Style="{StaticResource NormalButtonColorStyle}" 
+                            Content="НОРМАЛЬНЫЙ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="NormalButtonColorStyle"/>
+                    <Button x:Name="FireButton" 
+                            Style="{StaticResource FireButtonColorStyle}" 
+                            Content="ОГОНЬ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="FireButtonColorStyle"/>
+                    <Button x:Name="StrengthButton" 
+                            Style="{StaticResource StrengthButtonColorStyle}" 
+                            Content="СИЛА"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="StrengthButtonColorStyle"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Column="1" Margin ="5,1,5,1">
-                    <Button x:Name="MagicButton" Style="{StaticResource MagicButtonColorStyle}" Content="МАГИЧЕСКИЙ"/>
-                    <Button x:Name="ColdButton" Style="{StaticResource ColdButtonColorStyle}" Content="ХОЛОД"/>
-                    <Button x:Name="DexterityButton" Style="{StaticResource DexterityButtonColorStyle}" Content="ЛОВКОСТЬ"/>
+                    <Button x:Name="MagicButton" 
+                            Style="{StaticResource MagicButtonColorStyle}" 
+                            Content="МАГИЧЕСКИЙ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="MagicButtonColorStyle"/>
+                    <Button x:Name="ColdButton" 
+                            Style="{StaticResource ColdButtonColorStyle}" 
+                            Content="ХОЛОД"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="ColdButtonColorStyle"/>
+                    <Button x:Name="DexterityButton" 
+                            Style="{StaticResource DexterityButtonColorStyle}" 
+                            Content="ЛОВКОСТЬ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="DexterityButtonColorStyle"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Column="2" Margin ="5,1,5,1">
-                    <Button x:Name="RareButton" Style="{StaticResource RareButtonColorStyle}" Content="РЕДКИЙ"/>
-                    <Button x:Name="LightningButton" Style="{StaticResource LightningButtonColorStyle}" Content="МОЛНИЯ"/>
-                    <Button x:Name="IntelligenceButton" Style="{StaticResource IntelligenceButtonColorStyle}" Content="ИНТЕЛЕКТ"/>
+                    <Button x:Name="RareButton" 
+                            Style="{StaticResource RareButtonColorStyle}" 
+                            Content="РЕДКИЙ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="RareButtonColorStyle"/>
+                    <Button x:Name="LightningButton" 
+                            Style="{StaticResource LightningButtonColorStyle}" 
+                            Content="МОЛНИЯ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="LightningButtonColorStyle"/>
+                    <Button x:Name="IntelligenceButton" 
+                            Style="{StaticResource IntelligenceButtonColorStyle}" 
+                            Content="ИНТЕЛЕКТ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="IntelligenceButtonColorStyle"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Column="3" Margin ="5,1,5,1">
-                    <Button x:Name="UniqueButton" Style="{StaticResource UniqueButtonColorStyle}" Content="УНИКАЛЬНЫЙ"/>
-                    <Button x:Name="ChaosButton" Style="{StaticResource ChaosButtonColorStyle}" Content="ХАОС"/>
-                    <Button x:Name="StandartButton" Style="{StaticResource DefaultButtonColorStyle}" Content="СТАНДАРТ"/>
+                    <Button x:Name="UniqueButton" 
+                            Style="{StaticResource UniqueButtonColorStyle}" 
+                            Content="УНИКАЛЬНЫЙ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="UniqueButtonColorStyle"/>
+                    <Button x:Name="ChaosButton" 
+                            Style="{StaticResource ChaosButtonColorStyle}" 
+                            Content="ХАОС"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="ChaosButtonColorStyle"/>
+                    <Button x:Name="StandartButton" 
+                            Style="{StaticResource DefaultButtonColorStyle}" 
+                            Content="СТАНДАРТ"
+                            Command="{Binding ChangeTextColorCommand}"
+                            CommandParameter="DefaultButtonColorStyle"/>
                 </StackPanel>
             </Grid>
             <RichTextBox x:Name="UserInput" Style="{StaticResource UserInputTextBoxStyle}" AcceptsReturn="True" Grid.Row="2"/>

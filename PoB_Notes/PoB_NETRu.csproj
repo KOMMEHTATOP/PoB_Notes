@@ -56,9 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Strength.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NotesViewModel.cs" />
     <Compile Include="View\NotesView.xaml.cs">
       <DependentUpon>NotesView.xaml</DependentUpon>
