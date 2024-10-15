@@ -1,13 +1,14 @@
 ﻿using PoB_NETRu.Commands;
 using PoB_NETRu.Models;
 using PoB_NETRu.ViewModels;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace PoB_NETRu.MainViewModels
 {
-    internal class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged
     {
         private Character _character;
         private object _selectedViewModel;
@@ -25,36 +26,41 @@ namespace PoB_NETRu.MainViewModels
                 }
             }
         }
+
         public object SelectedViewModel
         {
             get { return _selectedViewModel; }
-            set 
+            set
             {
                 _selectedViewModel = value;
                 OnPropertyChanged(nameof(SelectedViewModel));
             }
         }
 
+        public ICommand ShowNotesCommand { get; }
+        public ICommand ShowSkillTreeCommand { get; }
 
         public MainViewModel()
         {
             Character = new Character("Иван", 1);
-            SwitchViewCommand = new RelayCommand(SwitchView);
+            ShowNotesCommand = new RelayCommand(_ => ShowView("Notes"));
+            ShowSkillTreeCommand = new RelayCommand(_ => ShowView("Skills"));
             SelectedViewModel = new NotesViewModel();
         }
 
-        private void SwitchView(object parametr)
+        private void ShowView(string viewName)
         {
-            if (parametr is string viewName)
+            switch (viewName)
             {
-                switch (viewName)
-                {
-                    case "Notes":
-                        SelectedViewModel = new NotesViewModel();
-                        break;
-                }
+                case "Notes":
+                    SelectedViewModel = new NotesViewModel();
+                    break;
+                case "Skills":
+                    SelectedViewModel = new TreeSkillsViewModel(Character); // Передаем персонажа
+                    break;
             }
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
