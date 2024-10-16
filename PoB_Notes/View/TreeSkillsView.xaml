@@ -1,22 +1,17 @@
 ﻿<UserControl x:Class="PoB_NETRu.View.TreeSkillsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <UserControl.Resources>
-        <ContextMenu x:Key="SkillNodeContextMenu">
-            <MenuItem Header="Сила" Command="{Binding StrengthCommand}" />
-            <MenuItem Header="Ловкость" Command="{Binding DexterityCommand}" />
-            <MenuItem Header="Интеллект" Command="{Binding IntelligenceCommand}" />
-        </ContextMenu>
-    </UserControl.Resources>
-
     <Canvas Background="DarkGray">
-        <!-- Пример узлов -->
-        <Ellipse Width="50" Height="50" Fill="Red" Canvas.Left="100" Canvas.Top="100" ToolTip="Сила" MouseDown="SkillNode_MouseDown"/>
-        <Ellipse Width="50" Height="50" Fill="Green" Canvas.Left="200" Canvas.Top="200" ToolTip="Ловкость" MouseDown="SkillNode_MouseDown"/>
-        <Ellipse Width="50" Height="50" Fill="Blue" Canvas.Left="200" Canvas.Top="100" ToolTip="Интеллект" MouseDown="SkillNode_MouseDown"/>
-
-        <!-- Пример линий -->
-        <Line X1="125" Y1="125" X2="200" Y2="225" Stroke="Black" StrokeThickness="2"/>
-        <Line X1="125" Y1="125" X2="200" Y2="125" Stroke="Black" StrokeThickness="2"/>
+        <ItemsControl ItemsSource="{Binding SkillTree.Nodes.Values}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Ellipse Width="50" Height="50" Fill="Red" 
+                             ToolTip="{Binding Tooltip}" 
+                             MouseDown="SkillNode_MouseDown"
+                             Canvas.Left="{Binding X}" 
+                             Canvas.Top="{Binding Y}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Canvas>
 </UserControl>

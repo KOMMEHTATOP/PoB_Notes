@@ -1,5 +1,6 @@
 ﻿using PoB_NETRu.Commands;
 using PoB_NETRu.Models;
+using PoB_NETRu.Models.Tree;
 using PoB_NETRu.ViewModels;
 using System;
 using System.ComponentModel;
@@ -42,13 +43,22 @@ namespace PoB_NETRu.MainViewModels
 
         public MainViewModel()
         {
+            SkillTreeParser parser = new SkillTreeParser();
             Character = new Character("Иван", 1);
             ShowNotesCommand = new RelayCommand(_ => ShowView("Notes"));
             ShowSkillTreeCommand = new RelayCommand(_ => ShowView("Skills"));
             SelectedViewModel = new NotesViewModel();
+
+            // Полный путь к файлу
+            string filePath = @"C:\Users\Bahtiyar\source\repos\PoB_Notes\PoB_Notes\Models\Tree\data.json";
+            // Парсинг JSON файла
+            var skillTree = parser.ParseSkillTree(filePath);
+
+            // Обратите внимание на изменение здесь:
+            ShowSkillTreeCommand = new RelayCommand(_ => ShowView("Skills", skillTree)); // Передаем загруженное дерево умений
         }
 
-        private void ShowView(string viewName)
+        private void ShowView(string viewName, SkillTree skillTree = null)
         {
             switch (viewName)
             {
@@ -56,11 +66,10 @@ namespace PoB_NETRu.MainViewModels
                     SelectedViewModel = new NotesViewModel();
                     break;
                 case "Skills":
-                    SelectedViewModel = new TreeSkillsViewModel(Character); // Передаем персонажа
+                    SelectedViewModel = new TreeSkillsViewModel(Character, skillTree); // Передаем персонажа и skillTree
                     break;
             }
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
