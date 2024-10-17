@@ -26,6 +26,11 @@ namespace PoB_NETRu.Models
             ChaosDamage = 0; 
         }
 
+        public Character()
+        {
+            
+        }
+
         private string _charName;
         public string CharName
         {

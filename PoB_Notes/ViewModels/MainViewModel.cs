@@ -2,7 +2,7 @@
 using PoB_NETRu.Models;
 using PoB_NETRu.Models.Tree;
 using PoB_NETRu.ViewModels;
-using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -13,7 +13,6 @@ namespace PoB_NETRu.MainViewModels
     {
         private Character _character;
         private object _selectedViewModel;
-        public ICommand SwitchViewCommand { get; }
 
         public Character Character
         {
@@ -38,27 +37,33 @@ namespace PoB_NETRu.MainViewModels
             }
         }
 
+        public ICommand SwitchViewCommand { get; }
         public ICommand ShowNotesCommand { get; }
         public ICommand ShowSkillTreeCommand { get; }
+
+        // Инициализация коллекции
+        public ObservableCollection<Classes> Classes { get; } = new ObservableCollection<Classes>();
 
         public MainViewModel()
         {
             SkillTreeParser parser = new SkillTreeParser();
             Character = new Character("Иван", 1);
+
             ShowNotesCommand = new RelayCommand(_ => ShowView("Notes"));
             ShowSkillTreeCommand = new RelayCommand(_ => ShowView("Skills"));
+
             SelectedViewModel = new NotesViewModel();
 
             // Полный путь к файлу
-            string filePath = @"C:\Users\Bahtiyar\source\repos\PoB_Notes\PoB_Notes\Models\Tree\data.json";
+            string filePath = @"Models\Tree\data.json";
             // Парсинг JSON файла
-            var skillTree = parser.ParseSkillTree(filePath);
+            ObservableCollection<ClassAscendancy> classAscendancies = parser.ParseSkillTree(filePath);
 
-            // Обратите внимание на изменение здесь:
-            ShowSkillTreeCommand = new RelayCommand(_ => ShowView("Skills", skillTree)); // Передаем загруженное дерево умений
+            // Передаем загруженное дерево умений
+            ShowView("Skills", classAscendancies);
         }
 
-        private void ShowView(string viewName, SkillTree skillTree = null)
+        private void ShowView(string viewName, ObservableCollection<ClassAscendancy> classAscendancies = null)
         {
             switch (viewName)
             {
@@ -66,7 +71,8 @@ namespace PoB_NETRu.MainViewModels
                     SelectedViewModel = new NotesViewModel();
                     break;
                 case "Skills":
-                    SelectedViewModel = new TreeSkillsViewModel(Character, skillTree); // Передаем персонажа и skillTree
+                    // Передаем персонажа и коллекцию ClassAscendancy
+                    SelectedViewModel = new TreeSkillsViewModel(Character, classAscendancies);
                     break;
             }
         }

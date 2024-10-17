@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿
 
 namespace PoB_NETRu.Models.Tree
 {
-    internal class Ascendancies
+    public class Ascendancies
     {
         public string Id { get; set; }
         public string Name { get; set; }

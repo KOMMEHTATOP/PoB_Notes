@@ -1,53 +1,60 @@
-﻿using System;
-using System.IO;
-using System.Text.Json;  // Используется System.Text.Json
+﻿using System.IO;
+using System.Text.Json;
 using PoB_NETRu.Models.Tree;
+using System.Collections.ObjectModel;
+using System;
 
 public class SkillTreeParser
 {
-    public SkillTree ParseSkillTree(string filePath)
+    public ObservableCollection<ClassAscendancy> ParseSkillTree(string filePath)
     {
-        // Проверка существования файла
         if (!File.Exists(filePath))
         {
             throw new FileNotFoundException($"Файл по пути {filePath} не найден.");
         }
 
-        // Чтение содержимого JSON-файла
         string jsonContent = File.ReadAllText(filePath);
-
-        // Проверка на пустоту файла
         if (string.IsNullOrWhiteSpace(jsonContent))
         {
             throw new InvalidDataException("Файл пустой или содержит только пробелы.");
         }
 
-        SkillTree skillTree;
-
-        // Настройки для десериализации с игнорированием регистра
         var options = new JsonSerializerOptions
         {
-            PropertyNameCaseInsensitive = true // Игнорировать регистр полей
+            PropertyNameCaseInsensitive = true
         };
 
-        try
+        var skillTree = JsonSerializer.Deserialize<SkillTree>(jsonContent, options);
+        if (skillTree == null)
         {
-            // Парсинг с учетом настроек
-            skillTree = JsonSerializer.Deserialize<SkillTree>(jsonContent, options);
+            throw new JsonException("Не удалось десериализовать JSON в объект SkillTree.");
+        }
 
-            // Проверка на null после десериализации
-            if (skillTree == null)
+        var classAscendancies = new ObservableCollection<ClassAscendancy>();
+
+        foreach (var cls in skillTree.Classes)
+        {
+
+            foreach (var ascendancy in cls.Ascendancies)
             {
-                throw new JsonException("Не удалось десериализовать JSON в объект SkillTree.");
+                var flavourTextRect = ascendancy.FlavourTextRect ?? new FlavourTextRect();
+
+                classAscendancies.Add(new ClassAscendancy
+                {
+                    ClassName = cls.Name,
+                    BaseStr = cls.Base_Str,
+                    BaseDex = cls.Base_Dex,
+                    BaseInt = cls.Base_Int,
+                    AscendancyName = ascendancy.Name,
+                    X = flavourTextRect.X,
+                    Y = flavourTextRect.Y,
+                    Width = flavourTextRect.Width,
+                    Height = flavourTextRect.Height,
+                    FlavourText = ascendancy.FlavourText
+                });
             }
         }
-        catch (JsonException ex)
-        {
-            // Обработка ошибок при парсинге JSON
-            throw new InvalidDataException("Ошибка при десериализации JSON: " + ex.Message);
-        }
 
-        // Возврат объекта дерева навыков
-        return skillTree;
+        return classAscendancies;
     }
 }
